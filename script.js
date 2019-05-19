@@ -1,19 +1,20 @@
 document.querySelector('#thumbs').addEventListener('click', function(e) {
-  const largeImg = document.querySelector('#largeImg');
   const pImg = document.querySelector('p img');
+  const eventTarget = e.target.tagName;
   let link;
 
-  if (e.target.tagName === "A") {
+  e.preventDefault();
+
+  if (eventTarget === "A") {
     link = e.target.getAttribute('href');
   }
-  if (e.target.tagName === "IMG") {
+  if (eventTarget === "IMG") {
     link = e.target.parentNode.getAttribute('href');
   }
 
-  if (e.target.tagName === this.tagName) {
+  if (eventTarget === this.tagName) {
     return;
   }
   
   pImg.setAttribute('src', link);
-  event.preventDefault();
 });
